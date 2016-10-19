@@ -9,6 +9,9 @@
   },
   "author": "Matt West <mattantwest@icloud.com> (https://github.com/matt-west)",
   "license": "MIT",
+  "engines": {
+    "node": "6.7.0"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
