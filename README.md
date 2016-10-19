@@ -7,12 +7,12 @@ Demo at: https://tranquil-stream-29919.herokuapp.com
 ## Endpoints
 
 
-### Update SPF Record - `/` - (POST)
+### Update SPF Record - `/update-spf` - (POST)
 
 #### Request Data
 The request data should be passed as a JSON object.
 
-* `domain` - The domain that should be checked. 
+* `domain` - The domain that should be checked.
 * `service_spf` - A URL for the SPF entry that should be added.
 
 #### Response Data

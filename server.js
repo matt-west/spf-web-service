@@ -1,12 +1,23 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-
-var SPFService = require('./lib/spf_service.js');
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    app = express(),
+    marked = require('marked'),
+    fs = require('fs'),
+    SPFService = require('./lib/spf_service.js');
 
 app.use(bodyParser.json());
 
-app.post('/', function (req, res) {
+app.get('/', function(req, res) {
+  fs.readFile('README.md', 'utf8', function (err, data) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+
+    res.send(marked(data));
+  });
+});
+
+app.post('/update-spf', function (req, res) {
   var domain = req.body.domain,
       serviceSpf = req.body.service_spf,
       errors = [];
